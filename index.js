@@ -8,10 +8,6 @@ function Cache () {
   var _debug = false;
 
   this.put = function(key, value, time, timeoutCallback) {
-    if (_debug) {
-      console.log('caching: %s = %j (@%s)', key, value, time);
-    }
-
     if (typeof time !== 'undefined' && (typeof time !== 'number' || isNaN(time) || time <= 0)) {
       throw new Error('Cache timeout must be a positive number');
     } else if (typeof timeoutCallback !== 'undefined' && typeof timeoutCallback !== 'function') {
